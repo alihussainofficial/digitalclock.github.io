@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyClock</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&family=Mochiy+Pop+One&family=Poppins:wght@500&family=Satisfy&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+        padding: 0px;
+        margin: 0px;
+        /* background-color: black; */
+
+    }
+    body{
+        background-color: black;
+        z-index: -1;
+    }
+    .box {
+        padding: 7px;
+        width: 320px;
+        text-align: center;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        margin-top: 150px;
+        text-decoration-style: solid;
+        background-image: linear-gradient(90deg, #3a1c71, #d76d77, #ffaf7b);
+        color: aqua;
+        font-size: 50px;
+        box-shadow: rgb(90deg, #3a1c71, #d76d77, #ffaf7b);
+        animation: animate 3s linear infinite;
+        font-weight: 5000;
+
+        border: 2px solid cyan;
+        
+    }
+    
+
+    @keyframes animate {
+        100% {
+            filter: hue-rotate(360deg);
+        }
+</style>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div id="time"></div>
+        </div>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <script src="" async defer></script>
+</body>
+<script>
+    setInterval(() => {
+        const time = document.querySelector(".box #time");
+        let date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        let day_night = "AM";
+        if (hours > 12) {
+            day_night = "PM";
+            hours = hours - 12;
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        if (hours < 10) {
+            hours = "0" + hours;
+        }
+        time.textContent = hours + ":" + minutes + ":" + seconds + " " + day_night;
+
+    }, 1000);
+</script>
+
+</html>
